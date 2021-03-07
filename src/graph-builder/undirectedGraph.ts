@@ -21,7 +21,8 @@ class Graph{
     }
     getEdges(){ return this.edges; }
     getNodes(){ return this.nodes; }
-    create(){
+    getGraph(){
+        return {nodes:this.nodes, edges:this.edges}
         // create a netyarnwork
         // var container = document.getElementById("mynetwork");
         // var data = {
