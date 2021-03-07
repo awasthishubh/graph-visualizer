@@ -37,7 +37,7 @@ body {
   height: 80px;
   width: 80px;
   position: absolute;
-  bottom: 30px;
+  bottom: 5%;
   left: calc(50% - 40px);
   font-size: 40px;
   z-index: 1000;

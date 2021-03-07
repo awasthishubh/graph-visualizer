@@ -8,9 +8,12 @@ ReactDOM.render(
   <React.StrictMode>
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand" href="/">Graph Visualizer</a>
-      <a className="navbar-brand" href="/">Fork on Github</a>
+      <a className="github-button" href="https://github.com/awasthishubh/graph-visualizer" data-icon="octicon-star" data-size="large" aria-label="Star awasthishubh/graph-visualizer on GitHub">Star on Github</a>
+      {/* <a className="navbar-brand" href="https://github.com/awasthishubh/graph-visualizer">
+      </a> */}
     </nav>
-    <div style={{height: "calc(100vh - 56px)"}}>
+
+    <div style={{ height: "calc(100vh - 56px)" }}>
       <App />
     </div>
   </React.StrictMode>,
