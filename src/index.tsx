@@ -6,7 +6,13 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <nav className="navbar navbar-dark bg-dark">
+      <a className="navbar-brand" href="/">Graph Visualizer</a>
+      <a className="navbar-brand" href="/">Fork on Github</a>
+    </nav>
+    <div style={{height: "calc(100vh - 56px)"}}>
+      <App />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

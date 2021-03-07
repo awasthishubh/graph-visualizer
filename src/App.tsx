@@ -3,11 +3,12 @@ import create from './graph/createGraph'
 import GraphElement from './component/graph'
 import './App.css';
 import Input from './component/input';
+import inputFormat from './inputFormat';
 
 interface IGraph { nodes: { id: number, label: string }[], edges: { from: number, to: number }[] }
 
 function App() {
-  const [inputString, setinputString] = useState('[[2,3],[],[]]');
+  const [inputString, setinputString] = useState('');
   const [graph, setGraph] = useState<IGraph>({ nodes: [], edges: [] });
   const [showGraph, setShowGraph] = useState(false);
   const [inputType, setInputType] = useState("edg");
@@ -35,6 +36,7 @@ function App() {
       inputType={inputType}
       setGraphType={setGraphType}
       graphType={graphType}
+      format={inputFormat[inputType]}
     />
   );
 }

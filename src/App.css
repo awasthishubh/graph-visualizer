@@ -1,4 +1,33 @@
-body{
+body {
   padding: 0;
   margin: 0;
+}
+
+.input-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-items {
+  /* display: flex; */
+}
+.input-container .card{
+  min-width: 75vw;
+}
+
+.input-item {
+  /* flex: 1; */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.input-submit {
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
 }
