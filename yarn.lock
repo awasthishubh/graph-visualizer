@@ -10850,6 +10850,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+uuid@^7.0.2:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
+
 uuid@^8.3.0:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
@@ -10895,6 +10900,20 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vis-react-core@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vis-react-core/-/vis-react-core-1.0.0.tgz#21f28ba29e17a7fff57733802cbce4231116b197"
+  integrity sha512-K5bJNbd04cOapL2oqTP7AgxLajaaXH9r7z5CsO/uFccbeidzfcX7ZZeV4yXuGMRB70uXGScMa/ZrC3L3+u+i7Q==
+
+vis-react@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/vis-react/-/vis-react-0.5.1.tgz#613dee3170ca68799cc79852f74f7151899973d1"
+  integrity sha512-jXwTM7mbGpTohOiiKAYXPXyEEvm6X0oE7hdV0aKnZEmqnSMbsAI1AxQbyZdP7iPrmn0D/RbeotTh05614XjI9w==
+  dependencies:
+    lodash "^4.17.15"
+    uuid "^7.0.2"
+    vis-react-core "1.0.0"
 
 vm-browserify@^1.0.1:
   version "1.1.2"
