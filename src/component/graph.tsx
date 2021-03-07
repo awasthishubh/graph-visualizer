@@ -1,13 +1,23 @@
 import React from 'react';
 import Graph from 'vis-react';
 
-function GraphElement({graph}:any) {
+function GraphElement({ graph, isDirected }: any) {
   return (
-    // @ts-ignore
-      <Graph
-        graph={graph}
-        />
-    // <div>vrvr</div>
+    <div className="App" style={{height:"100vh"}}>
+    {/* @ts-ignore */}
+    <Graph
+      options={{
+        edges: {
+          arrows: {
+            to: {
+              enabled: isDirected,
+            }
+          }
+        }
+      }}
+      graph={graph}
+    />
+    </div>
   );
 }
 
