@@ -44,7 +44,7 @@ function Input({ inputString, setinputString, parse, setInputType, inputType, se
 
         </div>
         <hr />
-        <div style={{color: "red", textAlign:"center"}}>{error}</div>
+        <div style={{ color: "red", textAlign: "center" }}>{error}</div>
         <div><button className="input-submit" onClick={parse}>Submit</button></div>
       </div>
 

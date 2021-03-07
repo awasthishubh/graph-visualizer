@@ -13,15 +13,15 @@ function App() {
   const [showGraph, setShowGraph] = useState(false);
   const [inputType, setInputType] = useState("edg");
   const [graphType, setGraphType] = useState("undirected");
-  const [error, setError]         = useState("");
+  const [error, setError] = useState("");
 
   const parse = () => {
     setError("");
-    try{
+    try {
       setGraph(create(inputString, inputType, graphType));
       setShowGraph(true);
-    } catch(err){
-      setError(err.message.replace("JSON","Array"));
+    } catch (err) {
+      setError(err.message.replace("JSON", "Array"));
     }
   }
 

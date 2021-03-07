@@ -10,16 +10,11 @@ body {
   align-items: center;
 }
 
-.input-items {
-  /* display: flex; */
-}
-.input-container .card{
+.input-container .card {
   min-width: 75vw;
 }
 
 .input-item {
-  /* flex: 1; */
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -32,8 +27,7 @@ body {
   cursor: pointer;
 }
 
-
-.center-button{
+.center-button {
   height: 80px;
   width: 80px;
   position: absolute;

@@ -1,4 +1,4 @@
-const format:any = {
+const format: any = {
     edg: {
         text: "Provide an array G where G[i] = [ui, vi] denotes that there is an edge between nodes ui and vi.",
         ex: "[[1,2],[1,3],[2,3]]",
