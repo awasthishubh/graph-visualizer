@@ -1,8 +1,7 @@
-class Graph{
+class GraphBuild{
     nodes:{id:number, label: string}[]=[];
     edges:{from:number, to: number}[]=[];
     N;
-    // network;
     constructor(n:number,e:number[][]){
         for(let i=0; i<n; i++){
             this.nodes.push({ id: i+1, label: (i+1).toString() })
@@ -23,15 +22,7 @@ class Graph{
     getNodes(){ return this.nodes; }
     getGraph(){
         return {nodes:this.nodes, edges:this.edges}
-        // create a netyarnwork
-        // var container = document.getElementById("mynetwork");
-        // var data = {
-        //     nodes: new vis.DataSet(this.nodes),
-        //     edges: new vis.DataSet(this.edges),
-        // };
-        // var options = {};
-        // this.network = new vis.Network(container, data, options);
     }
 }
 
-export default Graph;
+export default GraphBuild;

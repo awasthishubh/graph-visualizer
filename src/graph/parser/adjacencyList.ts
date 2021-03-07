@@ -1,4 +1,4 @@
-class AdjacencyList{
+class AdjacencyListParser{
     edges:number[][];
     N:number;
     constructor(S: string){
@@ -14,4 +14,4 @@ class AdjacencyList{
     getEdges():number[][]{return this.edges;}
     getNumberOfNodes():number{return this.N;}
 }
-export default AdjacencyList;
+export default AdjacencyListParser;
