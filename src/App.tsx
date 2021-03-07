@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import create from './createGraph'
-import GraphElement from './graph'
+import create from './graph/createGraph'
+import GraphElement from './component/graph'
 import './App.css';
+import Input from './component/input';
 
 interface IGraph {nodes:{id:number, label: string}[], edges:{from:number, to: number}[]}
 
 function App() {
   const [inputString, setinputString] = useState('de');
   const [graph, setGraph] = useState<IGraph>({nodes:[], edges:[]});
-  // var graph:{nodes:{id:number, label: string}[], edges:{from:number, to: number}[]}={nodes:[], edges:[]};
-  var [showGraph, setShowGraph] = useState(false);
+  const [showGraph, setShowGraph] = useState(false);
   const parse=()=>{
     setGraph(create(inputString));
     setShowGraph(true);
@@ -24,8 +24,7 @@ function App() {
   }
   return (
     <div className="App" style={{height:"100vh"}}>
-      <input value={inputString} onChange={(e)=>setinputString(e.target.value)}/>
-      <button onClick={parse}>Submit</button>
+      <Input setinputString={setinputString} parse={parse} inputString={inputString}/>
     </div>
   );
 }
