@@ -1,9 +1,10 @@
 import React from 'react';
 import Graph from 'vis-react';
 
-function GraphElement({ graph, isDirected }: any) {
+function GraphElement({ graph, isDirected, setShowGraph }: any) {
   return (
     <div className="App" style={{height:"100vh"}}>
+    <button className="center-button btn btn-dark"><span className="reload" onClick={()=>setShowGraph(false)}>&#x21bb;</span></button>
     {/* @ts-ignore */}
     <Graph
       options={{

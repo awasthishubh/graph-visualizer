@@ -18,8 +18,8 @@ function Input({ inputString, setinputString, parse, setInputType, inputType, se
                 </div>
                 <div className="col-sm-5">
                   <h5>Graph Type</h5>
-                  <div><input type="radio" checked={graphType === "directed"} name="graphType" value="edg" onChange={() => setGraphType("directed")} /> Directed List</div>
                   <div><input type="radio" checked={graphType === "undirected"} name="graphType" value="adj" onChange={() => setGraphType("undirected")} /> Undirected List</div>
+                  <div><input type="radio" checked={graphType === "directed"} name="graphType" value="edg" onChange={() => setGraphType("directed")} /> Directed List</div>
                 </div>
               </div>
               <div style={{ width: "100%" }}>

@@ -12,7 +12,7 @@ function App() {
   const [graph, setGraph] = useState<IGraph>({ nodes: [], edges: [] });
   const [showGraph, setShowGraph] = useState(false);
   const [inputType, setInputType] = useState("edg");
-  const [graphType, setGraphType] = useState("directed");
+  const [graphType, setGraphType] = useState("undirected");
 
   const parse = () => {
     setGraph(create(inputString, inputType, graphType));
@@ -26,6 +26,7 @@ function App() {
       graphType={graphType}
       inputType={inputType}
       isDirected={graphType === "directed"}
+      setShowGraph={setShowGraph}
     />
   return (
     <Input

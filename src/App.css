@@ -31,3 +31,15 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+
+
+.center-button{
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  bottom: 30px;
+  left: calc(50% - 40px);
+  font-size: 40px;
+  z-index: 1000;
+  border-radius: 10px;
+}
