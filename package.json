@@ -1,6 +1,7 @@
 {
   "name": "graph-visualizer",
   "version": "0.1.0",
+  "homepage": "http://shubham.awasthi.dev/graph-visualizer",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
