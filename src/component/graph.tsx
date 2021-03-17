@@ -1,10 +1,14 @@
 import React from 'react';
 import Graph from 'vis-react';
 
-function GraphElement({ graph, isDirected, setShowGraph }: any) {
+function GraphElement({ inputString, graph, inputType, isDirected, setShowGraph,isWeighted }: any) {
   return (
     <div className="App" style={{ height: "100%" }}>
       <button className="center-button btn btn-dark"><span className="reload" onClick={() => setShowGraph(false)}>&#x21bb;</span></button>
+      <div style={{textAlign: "center"}}>
+      <b>Input Type:</b> {inputType==="edg"?"Edges List":"Adjacency List"}&emsp;&emsp;<b>Graph Type:</b> {isDirected?"Directed":"Undirected"}&emsp;&emsp;<b>isWeighted:</b>{isWeighted?"True":"False"} <br/>
+      <b>Input Array</b> {inputString}
+      </div>
       {/* @ts-ignore */}
       <Graph
         options={{
