@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AlgoLinks from '../algoLinks'
 function Input({ inputString, setinputString, parse,
   setInputType, inputType, setGraphType, graphType, format, error,
   isWeighted, setIsWeighted, setIs0, is0
@@ -65,7 +65,21 @@ function Input({ inputString, setinputString, parse,
       </div>
 
       {/* </form> */}
-      
+      <div className="card" style={{ textAlign: "left" }}>
+        <div className="card-body">
+          <h5 className="card-title">Useful Algorithms</h5>
+          <h6 className="card-subtitle mb-2 text-muted">Links</h6>
+          <p className="card-text">
+            <ol>
+            {(()=>{
+              return AlgoLinks.map((e)=><li> <a href={e.link} > {e.name}</a></li>)
+            })()}
+            </ol>
+          </p>
+          {/* <a href="#" className="card-link">Card link</a> */}
+          {/* <a href="#" className="card-link">Another link</a> */}
+        </div>
+      </div>
     </div>
 
   );

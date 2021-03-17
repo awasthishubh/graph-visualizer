@@ -17,7 +17,11 @@ body {
 
 .input-container .card {
   margin: auto;
+  margin-bottom : 100px;
+}
+.input-container{
   margin-top: 100px;
+
 }
 
 .input-item {
