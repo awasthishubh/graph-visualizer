@@ -1,13 +1,14 @@
 import React from 'react';
 
-function Input({ inputString, setinputString, parse, 
-    setInputType, inputType, setGraphType, graphType, format, error, 
-    isWeighted, setIsWeighted, setIs0, is0
-  }: any) {
+function Input({ inputString, setinputString, parse,
+  setInputType, inputType, setGraphType, graphType, format, error,
+  isWeighted, setIsWeighted, setIs0, is0
+}: any) {
   return (
+    // <div>
     <div className="input-container">
       {/* <form> */}
-      <div className="card container" style={{ margin: "auto" }}>
+      <div className="card container">
         <div>
           <h2 style={{ textAlign: "center", margin: 10 }}> Input Graph </h2>
         </div>
@@ -31,7 +32,7 @@ function Input({ inputString, setinputString, parse,
               </div>
             </div>
             <div style={{ width: "100%", margin: "10px 0px" }}>
-            <input type="checkbox" onChange={(e)=>{setIsWeighted(e.target.checked)}} checked={isWeighted}/>    Is Graph Weighted? 
+              <input type="checkbox" onChange={(e) => { setIsWeighted(e.target.checked) }} checked={isWeighted} />    Is Graph Weighted?
             </div>
             <div style={{ width: "100%" }}>
               <h5>Input Array</h5>
@@ -56,11 +57,17 @@ function Input({ inputString, setinputString, parse,
         </div>
         <hr />
         <div style={{ color: "red", textAlign: "center" }}>{error}</div>
-        <div><button className="input-submit" onClick={parse}>Submit</button></div>
+        <div style={{ margin: "0 -15px", width: "calc(100% + 30px)" }}>
+          <button style={{ borderRadius: "0px 0px 0.25rem 0.25rem" }} className="input-submit btn btn-primary" onClick={parse}>Submit</button></div>
+      </div>
+      <div>
+
       </div>
 
       {/* </form> */}
+      
     </div>
+
   );
 }
 

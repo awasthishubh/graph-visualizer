@@ -16,7 +16,13 @@ function App() {
   const [error, setError]         = useState("");
   const [isWeighted,setIsWeighted]= useState(false);
   const [is0,setIs0]= useState(false);
-
+  let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+  if(is0){
+    f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
+  }
+  React.useEffect(()=>{
+    setinputString(f.in)
+  },[f])
   const parse = () => {
     setError("");
     try {
@@ -24,7 +30,8 @@ function App() {
       setShowGraph(true);
     } catch (err) {
       console.error(err)
-      setError(err.message.replace("JSON", "Array"));
+      console.error(err.message)
+      setError("Enter a valid Array according to the format.");
     }
   }
   console.log(is0)
@@ -40,10 +47,10 @@ function App() {
       setShowGraph={setShowGraph}
       is0={is0}
     />
-  let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
-  if(is0){
-    f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
-  }
+  // let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+  // if(is0){
+  //   f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
+  // }
   const props={
     isWeighted, setIsWeighted,setinputString,
     parse,inputString,setInputType, is0,setIs0,
