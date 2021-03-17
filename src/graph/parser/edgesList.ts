@@ -1,10 +1,10 @@
 class EdgesListParser {
     edges: number[][];
     N: number = 0;
-    constructor(S: string) {
+    constructor(S: string, isWeighted: boolean) {
         let l: number[][] = JSON.parse(S);
         this.edges = l
-        console.log(this.edges)
+        // console.log(this.edges)
         l.forEach(ed => {
             this.N = Math.max(this.N, ed[0], ed[1]);
         })

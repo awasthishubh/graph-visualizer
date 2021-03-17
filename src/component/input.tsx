@@ -1,6 +1,9 @@
 import React from 'react';
 
-function Input({ inputString, setinputString, parse, setInputType, inputType, setGraphType, graphType, format, error }: any) {
+function Input({ inputString, setinputString, parse, 
+    setInputType, inputType, setGraphType, graphType, format, error, 
+    isWeighted, setIsWeighted 
+  }: any) {
   return (
     <div className="input-container">
       {/* <form> */}
@@ -11,16 +14,19 @@ function Input({ inputString, setinputString, parse, setInputType, inputType, se
         <div className="row">
           <div className="col-lg-6 col-sm-12 input-item" style={{ borderRight: "1px solid rgba(0,0,0,.125)" }}>
             <div className="row">
-              <div className="col-sm-5">
+              <div className="col-sm-6">
                 <h5>Input Type</h5>
                 <div><input type="radio" checked={inputType === "edg"} name="inputType" value="edg" onChange={() => setInputType("edg")} /> Edges List</div>
                 <div><input type="radio" checked={inputType === "adj"} name="inputType" value="adj" onChange={() => setInputType("adj")} /> Adjacency List</div>
               </div>
-              <div className="col-sm-5">
+              <div className="col-sm-6">
                 <h5>Graph Type</h5>
                 <div><input type="radio" checked={graphType === "undirected"} name="graphType" value="adj" onChange={() => setGraphType("undirected")} /> Undirected List</div>
                 <div><input type="radio" checked={graphType === "directed"} name="graphType" value="edg" onChange={() => setGraphType("directed")} /> Directed List</div>
               </div>
+            </div>
+            <div style={{ width: "100%", margin: "10px 0px" }}>
+            <input type="checkbox" onChange={(e)=>{setIsWeighted(e.target.checked)}} checked={isWeighted}/>    Is Graph Weighted? 
             </div>
             <div style={{ width: "100%" }}>
               <h5>Input Array</h5>

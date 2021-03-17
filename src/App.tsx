@@ -9,18 +9,20 @@ interface IGraph { nodes: { id: number, label: string }[], edges: { from: number
 
 function App() {
   const [inputString, setinputString] = useState('');
-  const [graph, setGraph] = useState<IGraph>({ nodes: [], edges: [] });
+  const [graph, setGraph]         = useState<IGraph>({ nodes: [], edges: [] });
   const [showGraph, setShowGraph] = useState(false);
   const [inputType, setInputType] = useState("edg");
   const [graphType, setGraphType] = useState("undirected");
-  const [error, setError] = useState("");
+  const [error, setError]         = useState("");
+  const [isWeighted,setIsWeighted]= useState(false);
 
   const parse = () => {
     setError("");
     try {
-      setGraph(create(inputString, inputType, graphType));
+      setGraph(create(inputString, inputType, graphType, isWeighted));
       setShowGraph(true);
     } catch (err) {
+      console.error(err)
       setError(err.message.replace("JSON", "Array"));
     }
   }
@@ -32,21 +34,16 @@ function App() {
       graphType={graphType}
       inputType={inputType}
       isDirected={graphType === "directed"}
+      isWeighted={isWeighted}
       setShowGraph={setShowGraph}
     />
-  return (
-    <Input
-      setinputString={setinputString}
-      parse={parse}
-      inputString={inputString}
-      setInputType={setInputType}
-      inputType={inputType}
-      setGraphType={setGraphType}
-      graphType={graphType}
-      format={inputFormat[inputType]}
-      error={error}
-    />
-  );
+  const props={
+    isWeighted, setIsWeighted,setinputString,
+    parse,inputString,setInputType,
+    inputType,setGraphType,graphType,error,
+    format:inputFormat[inputType]
+  }
+  return  <Input {...props} /> ;
 }
 
 export default App;
