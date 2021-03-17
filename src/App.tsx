@@ -15,17 +15,19 @@ function App() {
   const [graphType, setGraphType] = useState("undirected");
   const [error, setError]         = useState("");
   const [isWeighted,setIsWeighted]= useState(false);
+  const [is0,setIs0]= useState(false);
 
   const parse = () => {
     setError("");
     try {
-      setGraph(create(inputString, inputType, graphType, isWeighted));
+      setGraph(create(inputString, inputType, graphType, isWeighted,is0));
       setShowGraph(true);
     } catch (err) {
       console.error(err)
       setError(err.message.replace("JSON", "Array"));
     }
   }
+  console.log(is0)
 
   if (showGraph)
     return <GraphElement
@@ -36,12 +38,17 @@ function App() {
       isDirected={graphType === "directed"}
       isWeighted={isWeighted}
       setShowGraph={setShowGraph}
+      is0={is0}
     />
+  let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+  if(is0){
+    f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
+  }
   const props={
     isWeighted, setIsWeighted,setinputString,
-    parse,inputString,setInputType,
+    parse,inputString,setInputType, is0,setIs0,
     inputType,setGraphType,graphType,error,
-    format:isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+    format:f
   }
   return  <Input {...props} /> ;
 }

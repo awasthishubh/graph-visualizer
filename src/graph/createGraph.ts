@@ -20,12 +20,12 @@ function validateEdges(E: number[][], N: number, isWeighted:boolean) {
     })
     asert(mx, N, "Edge ID should be less than " + N + ".", 1);
 }
-function create(s: string, inputType: string, graphType: string, isWeighted:boolean) {
+function create(s: string, inputType: string, graphType: string, isWeighted:boolean,is0: boolean) {
     var glist;
-    if (inputType === "edg") glist = new EdgesListParser(s, isWeighted);
-    else glist = new AdjacencyListParser(s, isWeighted);
+    if (inputType === "edg") glist = new EdgesListParser(s, isWeighted,is0);
+    else glist = new AdjacencyListParser(s, isWeighted,is0);
 
-    var graph = new GraphBuild(glist.getNumberOfNodes(), glist.getEdges(), isWeighted);
+    var graph = new GraphBuild(glist.getNumberOfNodes(), glist.getEdges(), isWeighted,is0);
     // console.log(glist.getEdges())
     validateEdges(glist.getEdges(), graph.N, isWeighted);
     return graph.getGraph();

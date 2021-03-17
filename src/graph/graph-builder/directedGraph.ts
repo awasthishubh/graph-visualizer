@@ -2,9 +2,9 @@ class GraphBuild {
     nodes: { id: number, label: string }[] = [];
     edges: { from: number, to: number, label?: string }[] = [];
     N;
-    constructor(n: number, e: number[][], isWeighted: boolean) {
+    constructor(n: number, e: number[][], isWeighted: boolean,  is0: boolean) {
         for (let i = 0; i < n; i++) {
-            this.nodes.push({ id: i + 1, label: (i + 1).toString() })
+            this.nodes.push({ id: i + (is0?0:1), label: (i + (is0?0:1)).toString() })
         }
         if (e) {
             e.forEach(edge => {
