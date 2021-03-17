@@ -41,7 +41,7 @@ function App() {
     isWeighted, setIsWeighted,setinputString,
     parse,inputString,setInputType,
     inputType,setGraphType,graphType,error,
-    format:inputFormat[inputType]
+    format:isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
   }
   return  <Input {...props} /> ;
 }

@@ -8,8 +8,7 @@ class GraphBuild {
         }
         if (e) {
             e.forEach(edge => {
-                console.log(edge.length != undefined, edge)
-                if (isWeighted && edge[2] != undefined) this.edges.push({ from: edge[0], to: edge[1], label: edge[2].toString() });
+                if (isWeighted && edge[2] !== undefined) this.edges.push({ from: edge[0], to: edge[1], label: edge[2].toString() });
                 else this.edges.push({ from: edge[0], to: edge[1] });
             });
         }
