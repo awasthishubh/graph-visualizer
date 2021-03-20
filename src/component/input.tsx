@@ -1,8 +1,8 @@
 import React from 'react';
 import AlgoLinks from '../algoLinks'
 function Input({ inputString, setinputString, parse,
-  setInputType, inputType, setGraphType, graphType, format, error,
-  isWeighted, setIsWeighted, setIs0, is0
+  setinputFormat, inputFormat, setGraphType, graphType, format, error,
+  isWeighted, setIsWeighted, setIs0, is0, inputType, setInputType
 }: any) {
   return (
     // <div>
@@ -17,8 +17,13 @@ function Input({ inputString, setinputString, parse,
             <div className="row">
               <div className="col-sm-4">
                 <h5>Input Type</h5>
-                <div><input type="radio" checked={inputType === "edg"} name="inputType" value="edg" onChange={() => setInputType("edg")} /> Edges List</div>
-                <div><input type="radio" checked={inputType === "adj"} name="inputType" value="adj" onChange={() => setInputType("adj")} /> Adjacency List</div>
+                <div><input type="radio" checked={inputType === "plain"} name="inputType" value="plain" onChange={() => {setinputFormat("edg");setInputType("plain")}} /> Plain Text</div>
+                <div><input type="radio" checked={inputType === "array"} name="inputType" value="array" onChange={() => setInputType("array")} /> Array</div>
+              </div>
+              <div className="col-sm-4">
+                <h5>Input Format</h5>
+                <div><input type="radio" checked={inputFormat === "edg"} name="inputFormat" value="edg" onChange={() => setinputFormat("edg")} /> Edges List</div>
+                {inputType==="plain"?<div/>:<div><input type="radio" checked={inputFormat === "adj"} name="inputFormat" value="adj" onChange={() => setinputFormat("adj")} /> Adjacency List</div>}
               </div>
               <div className="col-sm-4">
                 <h5>Graph Type</h5>
@@ -35,7 +40,7 @@ function Input({ inputString, setinputString, parse,
               <input type="checkbox" onChange={(e) => { setIsWeighted(e.target.checked) }} checked={isWeighted} />    Is Graph Weighted?
             </div>
             <div style={{ width: "100%" }}>
-              <h5>Input Array</h5>
+              <h5>Input</h5>
               <textarea placeholder={format.ex} rows={5} style={{ padding: 10, resize: "none", width: "100%" }} value={inputString} onChange={(e) => setinputString(e.target.value)} />
             </div>
           </div>
@@ -69,13 +74,13 @@ function Input({ inputString, setinputString, parse,
         <div className="card-body">
           <h5 className="card-title">Useful Algorithms</h5>
           <h6 className="card-subtitle mb-2 text-muted">Links</h6>
-          <p className="card-text">
+          <div className="card-text">
             <ol>
-            {(()=>{
-              return AlgoLinks.map((e)=><li> <a href={e.link} > {e.name}</a></li>)
-            })()}
+              {(() => {
+                return AlgoLinks.map((e,i) => <li key={i}> <a rel="noopener noreferrer" target="_blank" href={e.link} > {e.name}</a></li>)
+              })()}
             </ol>
-          </p>
+          </div>
           {/* <a href="#" className="card-link">Card link</a> */}
           {/* <a href="#" className="card-link">Another link</a> */}
         </div>

@@ -3,7 +3,7 @@ import create from './graph/createGraph'
 import GraphElement from './component/graph'
 import './App.css';
 import Input from './component/input';
-import inputFormat from './inputFormat';
+import input from './inputFormat';
 
 interface IGraph { nodes: { id: number, label: string }[], edges: { from: number, to: number }[] }
 
@@ -11,12 +11,13 @@ function App() {
   const [inputString, setinputString] = useState('');
   const [graph, setGraph]         = useState<IGraph>({ nodes: [], edges: [] });
   const [showGraph, setShowGraph] = useState(false);
-  const [inputType, setInputType] = useState("edg");
+  const [inputFormat, setinputFormat] = useState("edg");
   const [graphType, setGraphType] = useState("undirected");
   const [error, setError]         = useState("");
   const [isWeighted,setIsWeighted]= useState(false);
-  const [is0,setIs0]= useState(false);
-  let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+  const [is0,setIs0]              = useState(false);
+  const [inputType, setInputType] = useState("plain");
+  let f=input[inputType][isWeighted?"w":"unw"][inputFormat]
   if(is0){
     f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
   }
@@ -26,7 +27,7 @@ function App() {
   const parse = () => {
     setError("");
     try {
-      setGraph(create(inputString, inputType, graphType, isWeighted,is0));
+      setGraph(create(inputString.trim(), inputFormat, graphType, isWeighted,is0, inputType==="plain"));
       setShowGraph(true);
     } catch (err) {
       console.error(err)
@@ -34,27 +35,27 @@ function App() {
       setError("Enter a valid Array according to the format.");
     }
   }
-  console.log(is0)
 
   if (showGraph)
     return <GraphElement
       graph={graph}
       inputString={inputString}
       graphType={graphType}
-      inputType={inputType}
+      inputFormat={inputFormat}
       isDirected={graphType === "directed"}
       isWeighted={isWeighted}
       setShowGraph={setShowGraph}
       is0={is0}
     />
-  // let f=isWeighted?inputFormat.w[inputType]:inputFormat.unw[inputType]
+  // let f=isWeighted?inputFormat.w[inputFormat]:inputFormat.unw[inputFormat]
   // if(is0){
   //   f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
   // }
   const props={
     isWeighted, setIsWeighted,setinputString,
-    parse,inputString,setInputType, is0,setIs0,
-    inputType,setGraphType,graphType,error,
+    parse,inputString,setinputFormat, is0,setIs0,
+    inputFormat,setGraphType,graphType,error,
+    inputType, setInputType,
     format:f
   }
   return  <Input {...props} /> ;

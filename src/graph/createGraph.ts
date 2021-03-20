@@ -20,9 +20,18 @@ function validateEdges(E: number[][], N: number, isWeighted:boolean) {
     })
     asert(mx, N, "Edge ID should be less than " + N + ".", 1);
 }
-function create(s: string, inputType: string, graphType: string, isWeighted:boolean,is0: boolean) {
+function create(s: string, inputFormat: string, graphType: string, isWeighted:boolean,is0: boolean, isPlain: boolean) {
     var glist;
-    if (inputType === "edg") glist = new EdgesListParser(s, isWeighted,is0);
+    if(isPlain){
+        let arr:number[][]=[]
+        let X=s.split("\n")
+        X.forEach((e,i)=>{
+            if(i===0) return;
+            arr.push(e.trim().split(' ').map((ee)=>parseInt(ee)))
+        })
+        s=JSON.stringify(arr);
+    }
+    if (inputFormat === "edg") glist = new EdgesListParser(s, isWeighted,is0);
     else glist = new AdjacencyListParser(s, isWeighted,is0);
 
     var graph = new GraphBuild(glist.getNumberOfNodes(), glist.getEdges(), isWeighted,is0);
