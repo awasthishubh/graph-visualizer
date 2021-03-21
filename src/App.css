@@ -39,12 +39,24 @@ body {
 }
 
 .center-button {
-  height: 80px;
-  width: 80px;
-  position: absolute;
-  bottom: 5%;
-  left: calc(50% - 40px);
-  font-size: 40px;
+  height: 40px;
+  width: 60px;
+  /* position: absolute; */
+  bottom: 10px;
+  left: calc(50% - 30px);
+  font-size: 20px;
+  font-weight: bold;
   z-index: 1000;
-  border-radius: 10px;
+  border-radius: 5px;
 }
+
+
+/* height: 40px;
+width: 60px;
+font-size: 20px;
+font-weight: bold;
+z-index: 1000;
+border-radius: 5px;
+margin: auto;
+margin-bottom: 10px;
+text-align: center; */
