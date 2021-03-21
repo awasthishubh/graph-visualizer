@@ -17,10 +17,7 @@ function App() {
   const [isWeighted,setIsWeighted]= useState(false);
   const [is0,setIs0]              = useState(false);
   const [inputType, setInputType] = useState("plain");
-  let f=input[inputType][isWeighted?"w":"unw"][inputFormat]
-  if(is0){
-    f=JSON.parse(JSON.stringify(f).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
-  }
+  let f=input[is0?"s0":"s1"][inputType][isWeighted?"w":"unw"][inputFormat]
   React.useEffect(()=>{
     setinputString(f.in)
   },[f])

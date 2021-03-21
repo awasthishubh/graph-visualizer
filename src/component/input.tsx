@@ -15,22 +15,22 @@ function Input({ inputString, setinputString, parse,
         <div className="row">
           <div className="col-lg-6 col-sm-12 input-item" style={{ borderRight: "1px solid rgba(0,0,0,.125)" }}>
             <div className="row">
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <h5>Input Type</h5>
                 <div><input type="radio" checked={inputType === "plain"} name="inputType" value="plain" onChange={() => {setinputFormat("edg");setInputType("plain")}} /> Plain Text</div>
                 <div><input type="radio" checked={inputType === "array"} name="inputType" value="array" onChange={() => setInputType("array")} /> Array</div>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <h5>Input Format</h5>
                 <div><input type="radio" checked={inputFormat === "edg"} name="inputFormat" value="edg" onChange={() => setinputFormat("edg")} /> Edges List</div>
                 {inputType==="plain"?<div/>:<div><input type="radio" checked={inputFormat === "adj"} name="inputFormat" value="adj" onChange={() => setinputFormat("adj")} /> Adjacency List</div>}
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <h5>Graph Type</h5>
                 <div><input type="radio" checked={graphType === "undirected"} name="graphType" onChange={() => setGraphType("undirected")} /> Undirected List</div>
                 <div><input type="radio" checked={graphType === "directed"} name="graphType" onChange={() => setGraphType("directed")} /> Directed List</div>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <h5>Start Index</h5>
                 <div><input type="radio" checked={is0 === false} name="is0" value="1" onChange={() => setIs0(false)} /> 1</div>
                 <div><input type="radio" checked={is0 === true} name="is0" value="0" onChange={() => setIs0(true)} /> 0</div>
@@ -48,9 +48,9 @@ function Input({ inputString, setinputString, parse,
 
           <div className="col-lg-6 col-sm-12 input-item">
             <h5>Input Format</h5>
-            <p>
+            <pre style={{whiteSpace: "break-spaces"}}>
               {format.text}
-            </p>
+            </pre>
             <b>Example:</b> <pre>{format.ex}</pre>
             <p>
               {format.exp}

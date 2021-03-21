@@ -1,18 +1,18 @@
-const format: any = {
+const formatData: any = {
     plain: {
         unw: {
             edg: {
-                text: "The first line contains two integers 𝑛, 𝑚 — the number of vertices and the number of edges in the graph. \n The 𝑖-th of the next 𝑚 lines contains two integers 𝑎𝑖, 𝑏𝑖 (1≤𝑎𝑖,𝑏𝑖≤𝑛, 𝑎𝑖<𝑏𝑖), representing an edge connecting 𝑎𝑖 and 𝑏𝑖",
-                ex: "3 3 \n1 2 \n1 3 \n2 3",
-                in: "6 8 \n1 2 \n1 5 \n1 1 \n5 2 \n4 3 \n4 5 \n3 2 \n6 4 \n5 5",
+                text: "The first line contains two integers 𝑛, 𝑚 — the number of vertices and the number of edges in the graph.\nThe 𝑖-th of the next 𝑚 lines contains two integers 𝑎𝑖, 𝑏𝑖 representing an edge connecting 𝑎𝑖 and 𝑏𝑖",
+                ex: "3 3\n1 2\n1 3\n2 3",
+                in: "6 9\n1 2\n1 5\n1 1\n5 2\n4 3\n4 5\n3 2\n6 4\n5 5",
                 exp: "Means there are edges from 1 to 2, 1 to 3 and 2 to 3."
             },
         },
         w: {
             edg: {
-                text: "Provide an array G where G[i] = [ui, vi, wi] denotes that there is an edge between nodes ui and vi with weight wi.",
-                ex: "3 3 \n1 2 8 \n1 3 9 \n2 3 7",
-                in: "6 9 \n1 2 5 \n1 3 7 \n2 3 8 \n4 4 9 \n4 5 9 \n5 6 1 \n6 4 3 \n6 1 9 \n1 1 8",
+                text: "The first line contains two integers 𝑛, 𝑚 — the number of vertices and the number of edges in the graph.\nThe 𝑖-th of the next 𝑚 lines contains tree integers a𝑖, b𝑖, w𝑖 representing an edge connecting 𝑎𝑖 and 𝑏𝑖 with weight w𝑖",
+                ex: "3 3\n1 2 8\n1 3 9\n2 3 7",
+                in: "6 9\n1 2 5\n1 3 7\n2 3 8\n4 4 9\n4 5 9\n5 6 1\n6 4 3\n6 1 9\n1 1 8",
                 exp: "Means there are edges from 1 to 2, 1 to 3 and 2 to 3."
             },
         }
@@ -41,13 +41,33 @@ const format: any = {
             },
             adj: {
                 text: "Provide an array G where G[i] is the list of pair of vertex and distance adjacent to the ith vertex. The size of the array is equal to the number of vertices.",
-                ex: `[\n  [[2,8],[3,9]],\n  [[3,7]],\n  []\n]`,
+                ex: `[\n [[2,8],[3,9]],\n [[3,7]],\n []\n]`,
                 in: `[[[1,1],[2,5],[3,3]],[[3,7]],[[4,8],[5,9]],[[2,3],[3,1]],[[1,9]],[[4,4],[1,6],[6,6]]]`,
                 exp: "Means there are edges from 1 to 2, 1 to 3 and 2 to 3."
             }
         }
     }
 
+}
+function add(s:string){
+    return s.split("\n").map((e,i)=>{
+        if(i===0) return (parseInt(s[0])+1).toString()+" "+(parseInt(s[2])+1).toString();
+        return e;
+    }).join("\n")
+}
+const formatFor0=(f:any)=>{
+    let x=JSON.parse(JSON.stringify(formatData).split('').map((e:any)=> (e!==' ' && !isNaN(e))? parseInt(e)-1: e).join(""))
+    x.plain.unw.edg.ex=add(x.plain.unw.edg.ex)
+    x.plain.unw.edg.in=add(x.plain.unw.edg.in)
+    x.plain.w.edg.ex=add(x.plain.w.edg.ex)
+    x.plain.w.edg.in=add(x.plain.w.edg.in)
+    return x;
+}
+
+
+const format = {
+    s1: formatData,
+    s0: formatFor0(formatData),
 }
 export default format;
 
